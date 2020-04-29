@@ -7,9 +7,26 @@ const userRouter = express.Router()
 userRouter.get('/', (req, res) => {
     userModel.getAllUsers()
         .then((allUsers) => {
-            res.json(allUsers)
+            res.render('user/allUsers' , {allUsers})
         })
         .catch(err => {
+            console.log(err)
+            res.json(err)
+        })
+})
+
+//CREATE NEW USER 
+userRouter.get('/new', (req, res) => {
+    res.render('user/createUser')
+})
+
+//EDIT USER FORM
+userRouter.get('/:id/edit', (req, res) => {
+    userModel.getOneUser(req.params.id)
+        .then((singleUser) => {
+            res.render('user/editUser', {singleUser})
+        })
+        .then(err => {
             console.log(err)
             res.json(err)
         })
@@ -19,7 +36,7 @@ userRouter.get('/', (req, res) => {
 userRouter.get('/:id', (req, res) => {
     userModel.getOneUser(req.params.id)
         .then((singleUser) => {
-            res.json(singleUser)
+            res.render('user/singleUser', {singleUser})
         })
         .catch(err => {
             console.log(err)
@@ -31,7 +48,7 @@ userRouter.get('/:id', (req, res) => {
 userRouter.post('/', (req, res) => {
     userModel.createUser(req.body)
         .then(() => {
-            res.json('Ok')
+            res.redirect('/user')
         })
         .catch(err => {
             console.log(err)
@@ -55,7 +72,7 @@ userRouter.put('/:id', (req, res) => {
 userRouter.delete('/:id', (req, res) => {
     userModel.deleteUser(req.params.id)
         .then(() => {
-            res.json('Ok')
+            res.redirect('/user')
         })
         .catch(err => {
             console.log(err)

@@ -1,0 +1,15 @@
+<a href="/user/{{singleUser._id}}/edit">
+    <button>
+        Edit
+    </button>
+</a>
+
+<div class="title">Name</div>
+{{singleUser.name}}
+
+<div class="title"> Date</div>
+{{singleUser.date}}
+
+<form action="/user/{{singleUser._id}}?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+</form>
