@@ -2,8 +2,12 @@ const mongoose = require('../db/connection.js')
 const Schema = mongoose.Schema
 
 const choreSchema = new Schema({
+    userId:{
+        type: String,
+        required: true
+    },
     type: String,
-    when: String,
+    when: Date,
 })
 
 const choreCollection = mongoose.model('chore', choreSchema)
@@ -17,6 +21,12 @@ function getAllChores() {
 function getOneChore(id) {
     return choreCollection.findById(id)
 }
+
+// GET BY FACILITY
+function getAllChoresByUserId(userId) {
+    return choreCollection.find({'userId': userId})
+}
+
 //CREATE
 function createChore(newChore) {
     return choreCollection.create(newChore)
@@ -33,6 +43,7 @@ function deleteChore(id) {
 module.exports = {
     getAllChores,
     getOneChore,
+    getAllChoresByUserId,
     createChore,
     updateChore,
     deleteChore

@@ -1,5 +1,6 @@
 const express = require('express')
 const userModel = require('../models/User.js')
+const choreModel = require('../models/Chore.js')
 
 const userRouter = express.Router()
 
@@ -33,15 +34,29 @@ userRouter.get('/:id/edit', (req, res) => {
 })
 
 //GET ONE USER 
-userRouter.get('/:id', (req, res) => {
-    userModel.getOneUser(req.params.id)
-        .then((singleUser) => {
-            res.render('user/singleUser', {singleUser})
-        })
-        .catch(err => {
-            console.log(err)
-            res.json(err)
-        })
+// userRouter.get('/:id', (req, res) => {
+//     userModel.getOneUser(req.params.id)
+//         .then((singleUser) => {
+//             res.render('user/singleUser', {singleUser})
+//         })
+//         .catch(err => {
+//             console.log(err)
+//             res.json(err)
+//         })
+// })
+
+
+userRouter.get('/:id', async (req, res) => {
+    console.log('userRouter.GET one route')
+    try {
+        const singleUser = await userModel.getOneUser(req.params.id)
+        const chores = await choreModel.getAllChoresByUserId(req.params.id)
+
+        res.render('user/singleUser', {singleUser, chores})
+    } catch (err) {
+        console.log(err)
+        res.json(err)
+    }
 })
 
 //CREATE 
@@ -79,5 +94,7 @@ userRouter.delete('/:id', (req, res) => {
             res.json(err)
         })
 })
+
+
 
 module.exports = userRouter
