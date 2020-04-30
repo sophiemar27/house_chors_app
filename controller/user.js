@@ -26,7 +26,7 @@ userRouter.get('/:id/edit', (req, res) => {
         .then((singleUser) => {
             res.render('user/editUser', {singleUser})
         })
-        .then(err => {
+        .catch(err => {
             console.log(err)
             res.json(err)
         })
@@ -60,7 +60,7 @@ userRouter.post('/', (req, res) => {
 userRouter.put('/:id', (req, res) => {
     userModel.updateUser(req.params.id, req.body)
         .then(() => {
-            res.json('Ok')
+            res.redirect('/user')
         })
         .catch(err => {
             console.log(err)

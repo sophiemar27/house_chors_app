@@ -1,0 +1,15 @@
+<a href="/chore/{{singleChore._id}}/edit">
+    <button>
+        Edit
+    </button>
+</a>
+
+<div class="title">Type Of Chore</div>
+{{singlechore.type}}
+
+<div class="title"> When</div>
+{{singlechore.when}}
+
+<form action="/chore/{{singleChore._id}}?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+</form>

@@ -1,0 +1,20 @@
+<div>
+<h1 class="main-title">All Chores</h1>
+</div>
+
+<a href="/chore/new">
+    <button>
+        Add Chore
+    </button>
+</a>
+<div class="chores">
+{{#each allChores}}
+<a href="/chore/{{_id}}">
+    <div class="user-item">
+        <div class="title">Type Of Chore</div>
+        {{type}}
+        <div class="title">When</div>
+        {{when}}
+    </div>
+</a>
+{{/each}}
