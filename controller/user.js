@@ -8,7 +8,7 @@ const userRouter = express.Router()
 userRouter.get('/', (req, res) => {
     userModel.getAllUsers()
         .then((allUsers) => {
-            res.render('user/allUsers' , {allUsers})
+            res.render('user/allUsers', {allUsers})
         })
         .catch(err => {
             console.log(err)

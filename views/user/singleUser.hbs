@@ -10,6 +10,9 @@
 <div class="title"> Date</div>
 {{singleUser.date}}
 
+<div class="title">Image URL</div>
+{{singleUser.image}}
+
 <form action="/user/{{singleUser._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>
@@ -30,10 +33,10 @@
 
 <h1>House Chores</h1>
 {{#each chores}}
-<div class="title">Chores {{type}}</div>
-{{when}}
+<div class="title">Chore Type: {{type}}</div>
+<div class="title">Scheduled For: {{when}}</div>
 {{!-- <form action="/chore/{{singleChore._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
-</form>
-<hr> --}}
+</form> --}}
+<hr>
 {{/each}}

@@ -3,9 +3,14 @@
 
 <form action="/user/{{singleUser._id}}?_method=PUT" method="POST">
 
-    <input type="text" name="name" placeholder="name"  value="{{singleUser.name}}"/>
+    <label>Name</label>
+    <input type="text" name="name" value="{{singleUser.name}}"/>
 
-    <input type="date" name="date" placeholder="date"  value="{{singleUser.date}}"/>
+    <label>Tody's Date</label>
+    <input type="date" name="date" value="{{singleUser.date}}"/>
+
+    <label>Image URL</label>
+    <input type="text" name="image" value="{{singleUser.image}}"/>
 
     <input type="submit" value="Save"/>
 

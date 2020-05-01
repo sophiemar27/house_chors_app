@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({
     name: String,
     date: Date,
+    image: String
 })
 
 const userCollection = mongoose.model('user', userSchema)

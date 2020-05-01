@@ -7,6 +7,7 @@ const choreSchema = new Schema({
         required: true
     },
     type: String,
+    frequency: String,
     when: Date,
 })
 
