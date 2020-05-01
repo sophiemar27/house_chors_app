@@ -13,3 +13,27 @@
 <form action="/user/{{singleUser._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>
+
+
+<form action="/chore" method="POST">
+  <input type="hidden" value="{{singleUser._id}}" name="userId" />
+    <label>Type Of Chore</label>
+    <input type="text" name="type"/>
+
+    <label>Scheduled for:</label>
+    <input type="date" name="when"/>
+
+    <input type="submit" value="Add">
+</form>
+
+
+
+<h1>House Chores</h1>
+{{#each chores}}
+<div class="title">Chores {{type}}</div>
+{{when}}
+{{!-- <form action="/chore/{{singleChore._id}}?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+</form>
+<hr> --}}
+{{/each}}

@@ -10,11 +10,12 @@
 <div class="chores">
 {{#each allChores}}
 <a href="/chore/{{_id}}">
-    <div class="user-item">
+    <div class="chore-item">
         <div class="title">Type Of Chore</div>
         {{type}}
         <div class="title">When</div>
         {{when}}
+
     </div>
 </a>
 {{/each}}

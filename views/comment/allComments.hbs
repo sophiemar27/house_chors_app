@@ -1,0 +1,21 @@
+
+<h1>Comment Section</h1>
+
+<a href="/comment/new">
+    <button>
+        Add Comment
+    </button>
+</a>
+
+<div class="comments">
+{{#each allComments}}
+<a href="/comment/{{_id}}">
+    <div class="comment-item">
+        <div class="title"></div>
+        {{name}}
+        <div class="title"></div>
+        {{comment}}
+
+    </div>
+</a>
+{{/each}}

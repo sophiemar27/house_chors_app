@@ -3,9 +3,11 @@
 
 <form action="/chore/{{singleChore._id}}?_method=PUT" method="POST">
 
-    <input type="text" name="type" placeholder="Type Of Chore"  value="{{singleChore.type}}"/>
+    <label>Type Of Chore</label>
+    <input type="text" name="type"  value="{{singleChore.type}}"/>
 
-    <input type="text" name="when" placeholder="When"  value="{{singleChore.when}}"/>
+    <label>Scheduled For:</label>
+    <input type="date" name="when"  value="{{singleChore.when}}"/>
 
     <input type="submit" value="Save"/>
 

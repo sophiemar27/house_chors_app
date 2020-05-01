@@ -1,0 +1,15 @@
+<a href="/comment/{{singleComment._id}}/edit">
+    <button>
+        Edit
+    </button>
+</a>
+
+<div class="title">Name</div>
+{{singleComment.name}}
+
+<div class="title">comment:</div>
+{{singleComment.comment}}
+
+<form action="/comment/{{singleComment._id}}?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+</form>

@@ -5,10 +5,10 @@
 </a>
 
 <div class="title">Type Of Chore</div>
-{{singlechore.type}}
+{{singleChore.type}}
 
-<div class="title"> When</div>
-{{singlechore.when}}
+<div class="title"> Scheduled For</div>
+{{singleChore.when}}
 
 <form action="/chore/{{singleChore._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">

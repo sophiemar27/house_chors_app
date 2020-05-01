@@ -1,0 +1,12 @@
+<h1>Edit Comment</h1>
+
+
+<form action="/comment/{{singleComment._id}}?_method=PUT" method="POST">
+
+    <input type="text" name="name" placeholder="name"  value="{{singleComment.name}}"/>
+    
+    <textarea    name="comment" cols="30" rows="10" value="{{singleComment.comment}}"></textarea>
+
+    <input type="submit" value="Save"/>
+
+</form>
