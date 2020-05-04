@@ -2,7 +2,7 @@ const mongoose = require('../db/connection.js')
 const Schema = mongoose.Schema
 
 const commentSchema = new Schema({
-    userId: {
+    choreId: {
         type: String,
         required: true
     },
@@ -23,8 +23,8 @@ function getOneComment(id) {
 }
 
 // GET BY User
-function getAllCommentsByUserId(userId) {
-    return commentCollection.find({'userId': userId})
+function getAllCommentsByChoreId(ChoreId) {
+    return commentCollection.find({'userId': ChoreId})
 }
 
 //CREATE
@@ -43,7 +43,7 @@ function deleteComment(id) {
 module.exports = {
     getAllComments,
     getOneComment,
-    getAllCommentsByUserId,
+    getAllCommentsByChoreId,
     createComment,
     updateComment,
     deleteComment
