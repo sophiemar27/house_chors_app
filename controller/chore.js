@@ -1,5 +1,6 @@
 const express = require('express')
 const choreModel = require('../models/Chore.js')
+const commentModel = require('../models/Comment.js')
 
 const choreRouter = express.Router()
 
@@ -32,16 +33,29 @@ choreRouter.get('/:id/edit', (req, res) => {
         })
 })
 
-//GET ONE CHORE 
-choreRouter.get('/:id', (req, res) => {
-    choreModel.getOneChore(req.params.id)
-        .then((singleChore) => {
-            res.render('chore/singleChore', {singleChore})
-        })
-        .catch(err => {
-            console.log(err)
-            res.json(err)
-        })
+// //GET ONE CHORE 
+// choreRouter.get('/:id', (req, res) => {
+//     choreModel.getOneChore(req.params.id)
+//         .then((singleChore) => {
+//             res.render('chore/singleChore', {singleChore})
+//         })
+//         .catch(err => {
+//             console.log(err)
+//             res.json(err)
+//         })
+// })
+
+choreRouter.get('/:id', async (req, res) => {
+    console.log('choreRouter.GET one route')
+    try {
+        const singleChore = await choreModel.getOneChore(req.params.id)
+        const comments = await commentModel.getAllCommentsByChoreId(req.params.id)
+
+        res.render('chore/singleChore', {singleChore, comments})
+    } catch (err) {
+        console.log(err)
+        res.json(err)
+    }
 })
 
 //CREATE 

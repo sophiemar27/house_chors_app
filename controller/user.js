@@ -1,7 +1,7 @@
 const express = require('express')
 const userModel = require('../models/User.js')
 const choreModel = require('../models/Chore.js')
-const commentModel = require('../models/Comment.js')
+//const commentModel = require('../models/Comment.js')
 
 const userRouter = express.Router()
 
@@ -52,9 +52,9 @@ userRouter.get('/:id', async (req, res) => {
     try {
         const singleUser = await userModel.getOneUser(req.params.id)
         const chores = await choreModel.getAllChoresByUserId(req.params.id)
-        const singleComment = await commentModel.getOneComment(singleUser.commentId)
+    
 
-        res.render('user/singleUser', {singleUser, chores, singleComment})
+        res.render('user/singleUser', {singleUser, chores})
     } catch (err) {
         console.log(err)
         res.json(err)
