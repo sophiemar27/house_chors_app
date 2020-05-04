@@ -1,6 +1,7 @@
 const express = require('express')
 const userModel = require('../models/User.js')
 const choreModel = require('../models/Chore.js')
+const commentModel = require('../models/Comment.js')
 
 const userRouter = express.Router()
 
@@ -51,13 +52,27 @@ userRouter.get('/:id', async (req, res) => {
     try {
         const singleUser = await userModel.getOneUser(req.params.id)
         const chores = await choreModel.getAllChoresByUserId(req.params.id)
+        const singleComment = await commentModel.getOneComment(singleUser.commentId)
 
-        res.render('user/singleUser', {singleUser, chores})
+        res.render('user/singleUser', {singleUser, chores, singleComment})
     } catch (err) {
         console.log(err)
         res.json(err)
     }
 })
+//COMMENT ASSOCIATION
+// userRouter.get('/:id', async(req, res) => {
+//     try {
+//         const singleUser = await userModel.getOneUser(req.params.id)
+//         const singleComment = await commentModel.getOneComment(req.params.id)
+
+//         res.render('user/singleUser', {singleUser, comments})
+//     } catch (err) {
+//         console.log(err)
+//         res.json(err)
+//     }
+
+// })
 
 //CREATE 
 userRouter.post('/', (req, res) => {

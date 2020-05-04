@@ -7,8 +7,8 @@ const choreSchema = new Schema({
         required: true
     },
     type: String,
-    frequency: String,
-    when: Date,
+    howOften: String,
+    when: String,
 })
 
 const choreCollection = mongoose.model('chore', choreSchema)

@@ -1,8 +1,10 @@
 const express = require('express')
+const methodOverride = require('method-override')
+
 const userRouter = require('./controller/user.js')
 const choreRouter = require('./controller/chore.js')
 const commentRouter = require('./controller/comment.js')
-const methodOverride = require('method-override')
+
 
 const app = express()
 const port = 3000
