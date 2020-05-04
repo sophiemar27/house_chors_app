@@ -1,5 +1,6 @@
 body {
     background-color: lightgoldenrodyellow;
+    font-family: 'Roboto', sans-serif;
 }
 
 .main-title {
@@ -7,18 +8,40 @@ body {
 }
 
 .add-container .material-icons {
+
     font-size: 50px;
     color: black;
 }
 .users {
     display: flex;
     justify-content: space-evenly;
-
-
 }
 
+.user-conatainer {
+    border-radius: 5px;
+    height: 160px;
+    width: 160px;
+}
+
+
 #user-img {
+    border-radius: 50%;
     height: 100px;
     width: 100px;
 }
 
+
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.input {
+    margin: 20px;
+    padding: 15px 40px;
+    font-size: large;
+}
+input[value="Add"] {
+    padding: 5px 20px;
+}
