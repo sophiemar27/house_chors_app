@@ -7,12 +7,9 @@
 <div class="title">Name</div>
 {{singleUser.name}}
 
-<div class="title"> Date</div>
-{{singleUser.date}}
 
-<div class="title">Image URL</div>
-{{singleUser.image}}
-
+<div class="title"></div>
+<img src="{{singleUser.image}}"/>
 <form action="/user/{{singleUser._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>
@@ -35,8 +32,29 @@
 {{#each chores}}
 <div class="title">Chore Type: {{type}}</div>
 <div class="title">Scheduled For: {{when}}</div>
-{{!-- <form action="/chore/{{singleChore._id}}?_method=DELETE" method="POST">
+<form action="/chore/{{_id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
-</form> --}}
+</form>
+<hr>
+{{/each}}
+
+<form action="/comment" method="POST">
+<input type="hidden" value="{{singleUser._id}}" name="userId" />
+    <input type="text" placeholder="Name"  name="name">
+
+    <br>
+
+    <label>Comment:</label>
+    <textarea name="comment"  cols="20" rows="5"></textarea>
+    <input type="submit" value="Create" >
+</form>
+
+
+{{#each singleComment}}
+<div class="title"> {{name}}</div>
+<div class="title">{{comment}}</div>
+<form action="/comment/{{_id}}?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+</form>
 <hr>
 {{/each}}

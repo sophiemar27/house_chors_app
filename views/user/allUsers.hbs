@@ -1,21 +1,27 @@
 <div>
-<h1 class="main-title">All Users</h1>
+<h1 class="main-title">House Chore Tracker</h1>
 </div>
 
 <a href="/user/new">
-    <button>
-        Add User
-    </button>
+
+    <div class="add-container">
+                <span class="material-icons">
+                    add
+                </span>
+                {{!-- <span>Add User</span> --}}
+    </div>
+    
 </a>
 <div class="users">
 {{#each allUsers}}
 <a href="/user/{{_id}}">
     <div class="user-item">
-        {{!-- {{image}} --}}
-        <div class="title"></div>
+       <img id="user-img" src=" {{image}}"/>
+
+        <div class="title">
         {{name}}
-        <div class="title"></div>
-        {{date}}
+        </div>
+
     </div>
 </a>
 {{/each}}
