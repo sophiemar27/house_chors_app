@@ -9,16 +9,19 @@
 
 
 <div class="title"></div>
-<img src="{{singleUser.image}}"/>
+<img id="user-img" src="{{singleUser.image}}"/>
+
 <form action="/user/{{singleUser._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>
-
 
 <form action="/chore" method="POST">
   <input type="hidden" value="{{singleUser._id}}" name="userId" />
     <label>Type Of Chore</label>
     <input type="text" name="type"/>
+
+    <label>Frequency</label>
+    <input type="text" name="howOften"/>
 
     <label>Scheduled for:</label>
     <input type="date" name="when"/>
@@ -30,31 +33,20 @@
 
 <h1>House Chores</h1>
 {{#each chores}}
+
 <div class="title">Chore Type: {{type}}</div>
+<div class="title"> Frequency: {{howOften}}</div>
 <div class="title">Scheduled For: {{when}}</div>
+
 <form action="/chore/{{_id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>
+
+<a href="/chore/{{_id}}">
+    <button>
+        Edit
+    </button>
+</a>
 <hr>
 {{/each}}
 
-<form action="/comment" method="POST">
-<input type="hidden" value="{{singleUser._id}}" name="userId" />
-    <input type="text" placeholder="Name"  name="name">
-
-    <br>
-
-    <label>Comment:</label>
-    <textarea name="comment"  cols="20" rows="5"></textarea>
-    <input type="submit" value="Create" >
-</form>
-
-
-{{#each singleComment}}
-<div class="title"> {{name}}</div>
-<div class="title">{{comment}}</div>
-<form action="/comment/{{_id}}?_method=DELETE" method="POST">
-    <input type="submit" value="Delete">
-</form>
-<hr>
-{{/each}}

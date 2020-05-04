@@ -16,3 +16,25 @@
 <form action="/chore/{{singleChore._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>
+
+<form action="/comment" method="POST">
+<input type="hidden" value="{{singleChore._id}}" name="choreId" />
+    <input type="text" placeholder="Name"  name="name">
+
+    <br>
+
+    <label>Comment:</label>
+    <textarea name="comment"  cols="20" rows="5"></textarea>
+    <input type="submit" value="Create" >
+</form>
+
+
+{{#each comments}}
+<div class="title"> {{name}}</div>
+<div class="title">{{comment}}</div>
+<form action="/comment/{{_id}}?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+</form>
+
+<hr>
+{{/each}}
