@@ -1,17 +1,17 @@
-<h1>Edit Chore</h1>
+<h1 class="main-title">Edit Chore</h1>
 
 
-<form action="/chore/{{singleChore._id}}?_method=PUT" method="POST">
+<form class="form" action="/chore/{{singleChore._id}}?_method=PUT" method="POST">
 
-    <label>Type Of Chore</label>
-    <input type="text" name="type"  value="{{singleChore.type}}"/>
+    {{!-- <label>Type Of Chore</label> --}}
+    <input class="input" type="text" name="type" placeholder="Type Of Chore" value="{{singleChore.type}}"/>
 
-     <label>Frequency</label>
-    <input type="text" name="howOften"  value="{{singleChore.howOften}}"/>
+     {{!-- <label>Frequency</label> --}}
+    <input class="input" type="text" name="howOften" placeholder="Frequency" value="{{singleChore.howOften}}"/>
 
 
-    <label>Scheduled For:</label>
-    <input type="text" name="when"  value="{{singleChore.when}}"/>
+    {{!-- <label>Scheduled For:</label> --}}
+    <input class="input" type="text" name="when" value="{{singleChore.when}}"/>
 
     <input type="submit" value="Save"/>
 

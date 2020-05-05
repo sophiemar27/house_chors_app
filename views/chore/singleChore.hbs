@@ -1,33 +1,47 @@
-<a href="/chore/{{singleChore._id}}/edit">
+{{!-- <a href="/chore/{{singleChore._id}}/edit">
     <button>
         Edit
     </button>
-</a>
+</a> --}}
 
-<div class="title">Type Of Chore</div>
-{{singleChore.type}}
 
-<div class="title">Frequency</div>
-{{singleChore.howOften}}
+<div class="chores-container">
+<h1 class="sub-title">House Chore</h1>
+<div class="chore-results"> Type Of chore: {{singleChore.type}}</div>
 
-<div class="title"> Scheduled For</div>
-{{singleChore.when}}
+<div class="chore-results">Frequency: {{singleChore.howOften}}</div>
 
-<form action="/chore/{{singleChore._id}}?_method=DELETE" method="POST">
-    <input type="submit" value="Delete">
-</form>
+<div class="chore-results">Date: {{singleChore.when}}</div>
 
-<form action="/comment" method="POST">
+
+
+<div class="debtn">
+    <a href="/chore/{{singleChore._id}}/edit">
+        <button class="edit-btn">
+            Edit
+        </button>
+    </a>
+
+    <form action="/chore/{{singleChore._id}}?_method=DELETE" method="POST">
+        <input type="submit" class="delete-btn" value="Delete">
+    </form>
+</div>
+
+
+
+<form class="comment-container" action="/comment" method="POST">
 <input type="hidden" value="{{singleChore._id}}" name="choreId" />
-    <input type="text" placeholder="Name"  name="name">
+    <input class="comment-name" type="text" placeholder="Name"  name="name">
 
     <br>
 
-    <label>Comment:</label>
-    <textarea name="comment"  cols="20" rows="5"></textarea>
+    {{!-- <label>Comment:</label> --}}
+    <textarea class="comment-textarea" name="comment" placeholder="Your comment..." cols="21" rows="6"></textarea>
+    <br>
     <input type="submit" value="Create" >
 </form>
 
+</div>
 
 {{#each comments}}
 <div class="title"> {{name}}</div>
