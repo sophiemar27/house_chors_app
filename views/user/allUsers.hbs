@@ -1,6 +1,8 @@
+<div class="header">
 <div>
 <h1 class="main-title">House Chore Tracker</h1>
 </div>
+
 
 <a href="/user/new">
 
@@ -10,16 +12,19 @@
                 </span>
                 {{!-- <span>Add User</span> --}}
     </div>
-    
+
+</div>
+
 </a>
+
 <div class="users">
 {{#each allUsers}}
 <a href="/user/{{_id}}">
 <div class="user-conatainer">
     <div class="user-item">
-       <img id="user-img" src=" {{image}}"/>
+       <img id="user-img" alt="please post your cute face" src=" {{image}}"/>
 
-        <div class="title">
+        <div class="user-name">
         {{name}}
         </div>
 
