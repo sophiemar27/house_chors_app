@@ -1,5 +1,6 @@
 body {
-    background-color: lightgoldenrodyellow;
+    /* background-color: lightgoldenrodyellow; */
+    background-color: cornflowerblue;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -26,10 +27,22 @@ body {
 
 #user-img {
     border-radius: 50%;
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
 }
 
+.user-img-single #user-img-single {
+    margin: 15px 20px;
+}
+
+.debtn {
+    display: flex;
+    margin: 20px;
+}
+
+.user-delete {
+    margin-left: 15px;
+}
 
 
 .form {
@@ -39,9 +52,39 @@ body {
 
 .input {
     margin: 20px;
-    padding: 15px 40px;
+    padding: 8px 35px;
     font-size: large;
 }
 input[value="Add"] {
     padding: 5px 20px;
+    height: 100px;
+    width: 100px;
+}
+
+.chores-container {
+    color: white;
+    background-color: cornflowerblue;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border: solid black 1px;
+    border-radius: 5px;
+    width: 280px
+}
+
+.delete-btn {
+    color: white;
+    background-color: red;
+    margin-left: 15px;
+    border: none;
+}
+
+.edit-btn {
+    color: white;
+    background-color:green;
+    width: 50px;
+    height: 20px;
+    border: none;
 }
