@@ -1,52 +1,60 @@
-<a href="/user/{{singleUser._id}}/edit">
+
+
+<div class="user-img-single">
+<img id="user-img" src="{{singleUser.image}}"/>
+</div>
+
+<div class="title">{{singleUser.name}}</div>
+
+
+<div class="debtn">
+<a class="user-edit" href="/user/{{singleUser._id}}/edit">
     <button>
         Edit
     </button>
 </a>
 
-<div class="title">Name</div>
-{{singleUser.name}}
-
-
-<div class="title"></div>
-<img id="user-img" src="{{singleUser.image}}"/>
-
-<form action="/user/{{singleUser._id}}?_method=DELETE" method="POST">
+<form class="user-delete" action="/user/{{singleUser._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>
+</div>
 
-<form action="/chore" method="POST">
+<form class="form" action="/chore" method="POST">
   <input type="hidden" value="{{singleUser._id}}" name="userId" />
-    <label>Type Of Chore</label>
-    <input type="text" name="type"/>
+    {{!-- <label>Type Of Chore</label> --}}
+    <input class="input" type="text" name="type" placeholder="Type Of Chore"/>
 
-    <label>Frequency</label>
-    <input type="text" name="howOften"/>
+    {{!-- <label>Frequency</label> --}}
+    <input class="input" type="text" name="howOften" placeholder="Frequency"/>
 
-    <label>Scheduled for:</label>
-    <input type="date" name="when"/>
+    {{!-- <label>Scheduled for:</label> --}}
+    <input class="input" type="date" name="when" placeholder="Starting Date" />
 
     <input type="submit" value="Add">
 </form>
 
 
-
-<h1>House Chores</h1>
+<div class="chores-container" >
+<h1 class="sub-title">House Chores</h1>
 {{#each chores}}
 
 <div class="title">Chore Type: {{type}}</div>
 <div class="title"> Frequency: {{howOften}}</div>
 <div class="title">Scheduled For: {{when}}</div>
 
-<form action="/chore/{{_id}}?_method=DELETE" method="POST">
-    <input type="submit" value="Delete">
-</form>
-
+<div class="debtn">
 <a href="/chore/{{_id}}">
-    <button>
+    <button class="edit-btn">
         Edit
     </button>
 </a>
-<hr>
-{{/each}}
 
+<form class="delete-btn" action="/chore/{{_id}}/user/{{userId}}?_method=DELETE" method="POST">
+    <input class="delete-btn" type="submit" value="Delete">
+</form>
+
+<hr>
+</div>
+
+{{/each}}
+</div>

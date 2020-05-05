@@ -83,10 +83,11 @@ choreRouter.put('/:id', (req, res) => {
 })
 
 //DELETE 
-choreRouter.delete('/:id', (req, res) => {
+choreRouter.delete('/:id/user/:suid', (req, res) => {
     choreModel.deleteChore(req.params.id)
         .then(() => {
-            res.redirect('/chore')
+        
+            res.redirect(`/user/${req.params.suid}`)
         })
         .catch(err => {
             console.log(err)
