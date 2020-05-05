@@ -1,17 +1,44 @@
 body {
     /* background-color: lightgoldenrodyellow; */
+    margin: 0;
+    padding: 0;
     background-color: cornflowerblue;
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: cornflowerblue;
+    border-bottom: 1px solid white;
+    margin-bottom: 40px;
+}
+
 .main-title {
     text-align: center;
+    font-family: 'Abel', sans-serif;
+    color: white;
+    font-size: 40px;
+    padding: 10px;
+    margin-top: 0;
+}
+
+.sub-title {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: green;
+    margin-top: 0;
+    padding: 15px;
 }
 
 .add-container .material-icons {
-
+    flex: 1;
+    margin: 16px 0px 16px 100px;
     font-size: 50px;
-    color: black;
+    color: white;
 }
 .users {
     display: flex;
@@ -31,8 +58,18 @@ body {
     width: 150px;
 }
 
-.user-img-single #user-img-single {
-    margin: 15px 20px;
+.user-name {
+    color: #ffffff;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.single-user-image {
+    margin: 25px 0 20px 10px;
+}
+
+div .single-user {
+    margin-left: 20px;
 }
 
 .debtn {
@@ -63,15 +100,15 @@ input[value="Add"] {
 
 .chores-container {
     color: white;
-    background-color: cornflowerblue;
+    background-color: mediumseagreen;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    border: solid black 1px;
+    border: solid cornflowerblue 1px;
     border-radius: 5px;
-    width: 280px
+    width: 320px
 }
 
 .delete-btn {
