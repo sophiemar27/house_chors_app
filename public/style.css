@@ -87,7 +87,6 @@ div .single-user {
 .form {
     display: flex;
     justify-content: center;
-    align-items: stretch;
 }
 
 .input {
@@ -95,10 +94,19 @@ div .single-user {
     padding: 8px 35px;
     font-size: large;
 }
-input[value="Add"] {
-    padding: 5px 20px;
+
+input[value="save"] {
+    padding: 5px 40px;
     height: 100px;
     width: 100px;
+    margin-top: 30px;
+}
+
+input[value="Add"] {
+    padding: 5px 40px;
+    height: 100px;
+    width: 100px;
+    margin-top: 30px;
 }
 
 .chores-container {
