@@ -157,6 +157,18 @@ input[value="Add"] {
     margin-top: 25px;
 } */
 
+.all-chores {
+    margin-left: 50px;
+    line-height: 1.5em;
+    border: 1px solid white;
+    border-radius: 8px;
+    width: 500px;
+}
+
+.chore-item {
+    color: #ffffff;
+    margin-left: 20px;
+}
 .comment-name {
     padding: 6px 10px;
     margin-bottom: 10px;
