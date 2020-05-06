@@ -138,6 +138,15 @@ input[value="Add"] {
     border: none;
 }
 
+.single-edit-btn{
+    color: white;
+    background-color:green;
+    width: 50px;
+    height: 20px;
+    border: none;
+    margin-left: 110px;
+}
+
 .title {
     font-size: 18px;
 }
