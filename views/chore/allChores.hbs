@@ -2,13 +2,15 @@
 <h1 class="main-title">All Chores</h1>
 </div>
 
+<div class="all-chores">
 <a href="/chore/new">
     <button>
         Add Chore
     </button>
 </a>
-<div class="chores">
+
 {{#each allChores}}
+
 <a href="/chore/{{_id}}">
     <div class="chore-item">
         
@@ -24,4 +26,6 @@
 
     </div>
 </a>
+<hr>
 {{/each}}
+</div>
